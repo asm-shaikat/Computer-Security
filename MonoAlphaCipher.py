@@ -34,6 +34,6 @@ def decrypt(ciphertext):
 
 plaintext = input("Enter the plaintext message: ")
 ciphertext = encrypt(plaintext)
-print(ciphertext)
+print("Message will sent: "+ciphertext)
 decrypted_text = decrypt(ciphertext)
-print(decrypted_text)
+print("Message will get: "+decrypted_text)

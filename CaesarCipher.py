@@ -1,35 +1,32 @@
-def Encryption(message, key):
-    SendMessage = ''
-    for i in message:
-        if(ord(i)>=65 and ord(i)<=90):
-            a = ord(i) + key
-            if(a>90):
-                a = a % 90 + 64
-            SendMessage = SendMessage + chr(a)
-        elif(ord(i)>=97 and ord(i)<=122):
-            a = ord(i) + key
-            if(a > 122):
-                a = a % 122 + 96
-            SendMessage = SendMessage + chr(a)
+def Encryption(text, shift):
+    result = ""
+    for i in range(len(text)):
+        char = text[i]
+        if char.isupper():
+            result += chr((ord(char) + shift - 65) % 26 + 65)
+        elif char.islower():
+            result += chr((ord(char) + shift - 97) % 26 + 97)
         else:
-            send =  send + chr(i) + key
-    print("Decrypted Message: " + SendMessage)
-    Decryption(SendMessage,key)   
+            result += char
+    print("Encrypted Ciphertext: "+ result)
+    Decryption(result)
+    
 
 
-def Decryption(SendMessage,key):
-    GetMessage = ''
-    for i in SendMessage:
-        if(ord(i)>=65 and ord(i)<=90):
-            GetMessage = GetMessage + chr((ord(i) - key -65) % 26 + 65)
-        elif(ord(i)>=97 and ord(i)<=122):
-            GetMessage = GetMessage + chr((ord(i) - key - 97) % 26 + 97)
+def Decryption(ciphertext):
+    result = ""
+    for i in range(len(ciphertext)):
+        char = ciphertext[i]
+        if char.isupper():
+            result += chr((ord(char) - shift - 65) % 26 + 65)
+        elif char.islower():
+            result += chr((ord(char) - shift - 97) % 26 + 97)
         else:
-            GetMessage = GetMessage + chr(ord(i) - key)
-    print("Message will get: " + GetMessage)
-        
+            result += char
+    print("Decrypted Message: " + result)
 
-message = input("Enter the message: ")
-key = int(input("Enter the key: "))
 
-Encryption(message, key)
+plaintext = input("Enter the plaintext: ")
+shift = int(input("Enter the shift key: "))
+Encryption(plaintext, shift)
+
