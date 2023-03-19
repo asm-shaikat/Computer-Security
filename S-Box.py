@@ -7,7 +7,7 @@ s_box = [
 
 def substitute(decimal_input):
     input_bits = format(decimal_input, '06b')  
-    print("In binary:" +input_bits)
+    print(decimal_input," In binary:" +input_bits)
     row = int(input_bits[0] + input_bits[5],2)  
     col = int(input_bits[1:5], 2)  
     output_bits = format(s_box[row][col], '04b')  
