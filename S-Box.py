@@ -9,9 +9,12 @@ def substitute(decimal_input):
     input_bits = format(decimal_input, '06b')  
     print(decimal_input," In binary:" +input_bits)
     row = int(input_bits[0] + input_bits[5],2)  
-    col = int(input_bits[1:5], 2)  
-    output_bits = format(s_box[row][col], '04b')  
-    return int(output_bits, 2) 
+    col = int(input_bits[1:5], 2)
+    output_bits = s_box[row][col]
+    print("s[",row,"]","[",col,"]")
+    return output_bits
+    # output_bits = format(s_box[row][col], '04b')  
+    # return int(output_bits, 2) 
 
 decimal_input = int(input("Enter a decimal number: "))
 output_decimal = substitute(decimal_input)
