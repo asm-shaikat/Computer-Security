@@ -5,12 +5,12 @@ alphabet = 'abcdefghijklmnopqrstuvwxyz'
 key = list(alphabet)
 random.shuffle(key)
 key = ''.join(key)
-
 def encrypt(plaintext):
     ciphertext = ''
     for letter in plaintext:
         if letter.lower() in alphabet:
             index = alphabet.index(letter.lower())
+            print(index)
             if letter.isupper():
                 ciphertext += key[index].upper()
             else:

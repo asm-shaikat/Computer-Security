@@ -4,10 +4,10 @@ EXPANSION_TABLE = [
     21, 22, 23, 24, 23, 24, 25, 26, 27, 28, 27, 28, 29, 30, 0,  31,
 ]
 
-def expand(block):
+def expand(input_block):
     expanded_block = [0] * 48
     for i in range(48):
-        expanded_block[i] = block[EXPANSION_TABLE[i]]
+        expanded_block[i] = input_block[EXPANSION_TABLE[i]]
     return expanded_block
 
 input_block = [
